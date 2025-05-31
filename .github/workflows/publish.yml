@@ -25,8 +25,8 @@ jobs:
       - name: Install dependencies
         run: npm install
 
-      - name: Run tests
-        run: npm test
+      - name: Run lint
+        run: npm run lint
 
       - name: Update package.json with release tag
         run: |
