@@ -122,7 +122,7 @@ npx zepsh-ssg --hydrate --hydrate-bundle assets/js/main.js --sitemap --base-url 
 | `--batch-size <number>`          | Number of routes to process per batch                         | `batchSize`         |
 | `--incremental`                  | Enable incremental builds with caching (experimental)         | `incremental`       |
 | `-t, --timeout <number>`         | Timeout per route in milliseconds                             | `timeout`           |
-| `--no-inline-css`                | Disable CSS inlining optimization                             | `inlineCss`         |
+| `--inline-css`                   | Enable CSS inlining optimization                              | `inlineCss`         |
 | `--sitemap`                      | Generate sitemap.xml (recommended for SEO)                    | `sitemap`           |
 | `--exclude-routes <routes>`      | Comma-separated routes to exclude from generation             | `excludeRoutes`     |
 | `--custom-selectors <selectors>` | Custom CSS selectors for content extraction                   | `customSelectors`   |
@@ -222,7 +222,7 @@ export default {
 | `batchSize`       | `number`                           | Routes processed per batch                   | `50`                      | `--batch-size`       |
 | `incremental`     | `boolean`                          | Enable incremental builds (experimental)     | `false`                   | `--incremental`      |
 | `timeout`         | `number`                           | Timeout per route in milliseconds            | `30000`                   | `-t, --timeout`      |
-| `inlineCss`       | `boolean`                          | Enable CSS inlining with Critters            | `true`                    | `--no-inline-css`    |
+| `inlineCss`       | `boolean`                          | Enable CSS inlining with Critters            | `false`                   | `--inline-css`       |
 | `sitemap`         | `boolean`                          | Generate sitemap.xml                         | `false`                   | `--sitemap`          |
 | `excludeRoutes`   | `string[]`                         | Routes to exclude from generation            | `[]`                      | `--exclude-routes`   |
 | `customSelectors` | `string[]`                         | Custom CSS selectors for content             | `[]`                      | `--custom-selectors` |
@@ -502,8 +502,8 @@ npx zepsh-ssg --concurrency 1 --batch-size 10
 **4. CSS not loading**
 
 ```bash
-# Disable CSS inlining if needed
-npx zepsh-ssg --no-inline-css
+# Enable CSS inlining if needed
+npx zepsh-ssg --inline-css
 ```
 
 ### Debug Information
