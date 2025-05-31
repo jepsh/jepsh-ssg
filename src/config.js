@@ -1,12 +1,10 @@
 import fs from "fs";
 import path from "path";
-import { program } from "commander";
-import { watch } from "chokidar";
-import inquirer from "inquirer";
 import { pathToFileURL } from "url";
-import { startServer } from "./server.js";
-import { crawlRoutes } from "./crawler.js";
-import { logHeader, logConfig, logInfo, logSuccess, logError, logSummary } from "./utils.js";
+
+import inquirer from "inquirer";
+
+import { logInfo } from "./utils.js";
 
 async function autoDetectRoutes(inputDir) {
   const routes = new Set(["/"]);
