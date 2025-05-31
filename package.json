@@ -1,0 +1,80 @@
+{
+  "name": "zepsh-ssg",
+  "description": "A static site generator for modern web frameworks with route crawling and hydration support",
+  "version": "1.0.0",
+  "license": "Apache-2.0",
+  "author": "Zepsh Team <hi@zepsh.dev>",
+  "homepage": "https://zepsh.dev",
+  "keywords": [
+    "zepsh",
+    "static-site-generator",
+    "ssg",
+    "web-crawler",
+    "react",
+    "vue",
+    "svelte",
+    "hydration",
+    "puppeteer",
+    "cli"
+  ],
+  "type": "module",
+  "main": "src/index.js",
+  "bin": {
+    "zepsh-ssg": "bin/cli.js"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "files": [
+    "bin",
+    "src",
+    "README.md"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/zepsh/zepsh-ssg.git"
+  },
+  "bugs": {
+    "url": "https://github.com/zepsh/zepsh-ssg/issues"
+  },
+  "scripts": {
+    "dev": "node bin/cli.js",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix",
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
+    "test": "mocha 'tests/**/*.test.js' --require chai/register-expect.js",
+    "test:coverage": "c8 --reporter=html --reporter=text mocha 'tests/**/*.test.js' --require chai/register-expect.js",
+    "prepublishOnly": "npm run lint && npm run format:check"
+  },
+  "dependencies": {
+    "chalk": "^5.4.1",
+    "chokidar": "^4.0.3",
+    "commander": "^14.0.0",
+    "critters": "^0.0.25",
+    "crypto": "^1.0.1",
+    "fs-extra": "^11.3.0",
+    "inquirer": "^12.6.3",
+    "ora": "^8.2.0",
+    "p-limit": "^6.2.0",
+    "pretty-bytes": "^7.0.0",
+    "puppeteer": "^24.9.0"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.27.4",
+    "@babel/eslint-parser": "^7.27.1",
+    "c8": "^10.1.2",
+    "chai": "^5.1.1",
+    "eslint": "^8.57.1",
+    "eslint-config-prettier": "^10.1.5",
+    "eslint-config-standard": "^17.1.0",
+    "eslint-plugin-import": "^2.31.0",
+    "eslint-plugin-node": "^11.1.0",
+    "mocha": "^10.7.3",
+    "prettier": "^3.5.3",
+    "sinon": "^18.0.0"
+  },
+  "engines": {
+    "node": ">=20.x"
+  }
+}

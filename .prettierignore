@@ -1,0 +1,6 @@
+backup
+dist
+docs
+node_modules
+public
+package-lock.json
