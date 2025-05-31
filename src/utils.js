@@ -37,7 +37,7 @@ const createSpinner = (text) => {
 
 const logToFile = async (message) => {
   const logDir = path.join(".zepsh/debug", "log");
-  if (!logDir) await mkdir(logDir, { recursive: true });
+  await mkdir(logDir, { recursive: true });
 
   const logFile = fs.createWriteStream(path.join(logDir, "ssg.log"), {
     flags: "a",
