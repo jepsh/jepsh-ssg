@@ -1,7 +1,7 @@
 {
   "name": "zepsh-ssg",
   "description": "A static site generator for modern web frameworks with route crawling and hydration support",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "license": "Apache-2.0",
   "author": "Zepsh Team <hi@zepsh.dev>",
   "homepage": "https://zepsh.dev",
