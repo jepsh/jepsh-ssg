@@ -233,15 +233,16 @@ async function loadConfig() {
   const cwd = process.cwd();
   const configPath = path.join(cwd, "zepsh.config.js");
   const pkgPath = path.join(cwd, "package.json");
-
   let config = {};
   if (fs.existsSync(configPath)) {
     const configModule = await import(pathToFileURL(configPath).href);
     config = configModule.default.ssg || configModule.ssg;
-  } else if (fs.existsSync(pkgPath)) {
+  }
+  if (fs.existsSync(pkgPath)) {
     const pkg = JSON.parse(fs.readFileSync(pkgPath, "utf-8"));
     if (pkg.zepsh && pkg.zepsh.ssg) config = pkg.zepsh.ssg;
-  } else {
+  }
+  if (!fs.existsSync(configPath) && fs.existsSync(pkgPath)) {
     logInfo("No configuration found. Starting interactive mode ...");
     config = await promptConfig();
     await saveConfig(config);
@@ -304,7 +305,7 @@ async function loadConfig() {
     throw new Error("customSelectors must be an array");
   }
 
-  return { config, configSource };
+  return config;
 }
 
 export { loadConfig };
