@@ -136,7 +136,7 @@ async function main() {
       await runBuild(mergedConfig, options.dryRun);
     }
   } catch (error) {
-    logError(`Error: ${error.message}`, error);
+    logError(`Error: ${error.message}`);
     process.exit(1);
   }
 }
