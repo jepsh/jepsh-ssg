@@ -1,11 +1,7 @@
 #!/usr/bin/env node
 
-import fs from "fs";
-import path from "path";
-
 import { program } from "commander";
 import { watch } from "chokidar";
-import inquirer from "inquirer";
 
 import { loadConfig, startServer, crawlRoutes } from "../src/index.js";
 import { logHeader, logConfig, logInfo, logSuccess, logError, logSummary } from "../src/utils.js";
@@ -26,7 +22,7 @@ program
   .option("--batch-size <number>", "Number of routes per batch")
   .option("--incremental", "Enable incremental builds")
   .option("--timeout <number>", "Timeout per route in ms")
-  .option("--no-inline-css", "Disable CSS inlining")
+  .option("--inline-css", "Enable CSS inlining")
   .option("--sitemap", "Generate sitemap")
   .option("--exclude-routes <routes>", "Comma-separated routes to exclude")
   .option("--custom-selectors <selectors>", "Comma-separated custom selectors")
@@ -112,7 +108,7 @@ async function main() {
       ...(options.batchSize && { batchSize: parseInt(options.batchSize, 10) }),
       ...(options.incremental !== undefined && { incremental: true }),
       ...(options.timeout && { timeout: parseInt(options.timeout, 10) }),
-      ...(options.noInlineCss !== undefined && { inlineCss: false }),
+      ...(options.inlineCss !== undefined && { inlineCss: true }),
       ...(options.sitemap !== undefined && { sitemap: true }),
       ...(options.excludeRoutes && {
         excludeRoutes: options.excludeRoutes.split(",").map((r) => r.trim()),
@@ -140,7 +136,7 @@ async function main() {
       await runBuild(mergedConfig, options.dryRun);
     }
   } catch (error) {
-    logError(`Error: ${error.message}`);
+    logError(`Error: ${error.message}`, error);
     process.exit(1);
   }
 }

@@ -149,7 +149,7 @@ async function promptConfig() {
         type: "confirm",
         name: "inlineCss",
         message: "Inline CSS in generated HTML?",
-        default: true,
+        default: false,
       },
       {
         type: "confirm",
@@ -261,7 +261,7 @@ async function loadConfig() {
     batchSize: 50,
     incremental: false,
     timeout: 30000,
-    inlineCss: true,
+    inlineCss: false,
     sitemap: false,
     excludeRoutes: [],
     customSelectors: [],
