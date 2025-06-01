@@ -118,7 +118,7 @@ npx zepsh-ssg --hydrate --hydrate-bundle assets/js/main.js --sitemap --base-url 
 | `--flat-output`                  | Generate `page.html` instead of `page/index.html`             | `flatOutput`        |
 | `--hydrate`                      | Enable client-side hydration (experimental)                   | `hydrate`           |
 | `--hydrate-bundle <path>`        | Path to hydration bundle (relative to input directory)        | `hydrateBundle`     |
-| `--framework <name>`             | Target framework: `react`, `vue`, or `svelte`                 | `framework`         |
+| `--framework <name>`             | Target framework: `react`, `vite`, `vue`, or `svelte`         | `framework`         |
 | `--batch-size <number>`          | Number of routes to process per batch                         | `batchSize`         |
 | `--incremental`                  | Enable incremental builds with caching (experimental)         | `incremental`       |
 | `-t, --timeout <number>`         | Timeout per route in milliseconds                             | `timeout`           |
@@ -206,26 +206,26 @@ export default {
 
 #### Complete Configuration Reference
 
-| Field             | Type                               | Description                                  | Default                   | CLI Flag             |
-| ----------------- | ---------------------------------- | -------------------------------------------- | ------------------------- | -------------------- |
-| `routes`          | `string[]` \| `object[]`           | Routes to crawl or 'auto' for detection      | `['/']`                   | `--routes`           |
-| `basePath`        | `string`                           | Base path prefix for routes                  | `''`                      | `--base-path`        |
-| `baseUrl`         | `string`                           | Base URL for sitemap and canonical URLs      | `'http://localhost:3000'` | `--base-url`         |
-| `inputDir`        | `string`                           | Directory containing built application files | `'build'`                 | `-i, --input-dir`    |
-| `outDir`          | `string`                           | Output directory for static files            | `'build-ssg'`             | `-o, --out-dir`      |
-| `port`            | `number`                           | Development server port                      | `3000`                    | `-p, --port`         |
-| `concurrency`     | `number`                           | Concurrent crawling processes                | `3`                       | `--concurrency`      |
-| `flatOutput`      | `boolean`                          | Flat file structure vs. directory structure  | `false`                   | `--flat-output`      |
-| `hydrate`         | `boolean`                          | Enable client-side hydration (experimental)  | `false`                   | `--hydrate`          |
-| `hydrateBundle`   | `string`                           | Path to hydration JavaScript bundle          | `null`                    | `--hydrate-bundle`   |
-| `framework`       | `'react'` \| `'vue'` \| `'svelte'` | Target framework for optimization            | `'react'`                 | `--framework`        |
-| `batchSize`       | `number`                           | Routes processed per batch                   | `50`                      | `--batch-size`       |
-| `incremental`     | `boolean`                          | Enable incremental builds (experimental)     | `false`                   | `--incremental`      |
-| `timeout`         | `number`                           | Timeout per route in milliseconds            | `30000`                   | `-t, --timeout`      |
-| `inlineCss`       | `boolean`                          | Enable CSS inlining with Critters            | `false`                   | `--inline-css`       |
-| `sitemap`         | `boolean`                          | Generate sitemap.xml                         | `false`                   | `--sitemap`          |
-| `excludeRoutes`   | `string[]`                         | Routes to exclude from generation            | `[]`                      | `--exclude-routes`   |
-| `customSelectors` | `string[]`                         | Custom CSS selectors for content             | `[]`                      | `--custom-selectors` |
+| Field             | Type                                           | Description                                  | Default                   | CLI Flag             |
+| ----------------- | ---------------------------------------------- | -------------------------------------------- | ------------------------- | -------------------- |
+| `routes`          | `string[]` \| `object[]`                       | Routes to crawl or 'auto' for detection      | `['/']`                   | `--routes`           |
+| `basePath`        | `string`                                       | Base path prefix for routes                  | `''`                      | `--base-path`        |
+| `baseUrl`         | `string`                                       | Base URL for sitemap and canonical URLs      | `'http://localhost:3000'` | `--base-url`         |
+| `inputDir`        | `string`                                       | Directory containing built application files | `'build'`                 | `-i, --input-dir`    |
+| `outDir`          | `string`                                       | Output directory for static files            | `'build-ssg'`             | `-o, --out-dir`      |
+| `port`            | `number`                                       | Development server port                      | `3000`                    | `-p, --port`         |
+| `concurrency`     | `number`                                       | Concurrent crawling processes                | `3`                       | `--concurrency`      |
+| `flatOutput`      | `boolean`                                      | Flat file structure vs. directory structure  | `false`                   | `--flat-output`      |
+| `hydrate`         | `boolean`                                      | Enable client-side hydration (experimental)  | `false`                   | `--hydrate`          |
+| `hydrateBundle`   | `string`                                       | Path to hydration JavaScript bundle          | `null`                    | `--hydrate-bundle`   |
+| `framework`       | `'react'` \| `'vite'` \| `'vue'` \| `'svelte'` | Target framework for optimization            | `'react'`                 | `--framework`        |
+| `batchSize`       | `number`                                       | Routes processed per batch                   | `50`                      | `--batch-size`       |
+| `incremental`     | `boolean`                                      | Enable incremental builds (experimental)     | `false`                   | `--incremental`      |
+| `timeout`         | `number`                                       | Timeout per route in milliseconds            | `30000`                   | `-t, --timeout`      |
+| `inlineCss`       | `boolean`                                      | Enable CSS inlining with Critters            | `false`                   | `--inline-css`       |
+| `sitemap`         | `boolean`                                      | Generate sitemap.xml                         | `false`                   | `--sitemap`          |
+| `excludeRoutes`   | `string[]`                                     | Routes to exclude from generation            | `[]`                      | `--exclude-routes`   |
+| `customSelectors` | `string[]`                                     | Custom CSS selectors for content             | `[]`                      | `--custom-selectors` |
 
 > **⚠️ Note**: CLI flags always override configuration file settings. Features like `--watch` and `--dry-run` are CLI-only but can be combined with file configuration.
 
@@ -244,7 +244,7 @@ npx zepsh-ssg
 ? Routes to crawl (comma-separated or 'auto'): /,/about,/users/:id[1,2,3]
 ? Enable sitemap generation? (Y/n): Y
 ? Base URL for sitemap: https://mysite.com
-? Framework (react/vue/svelte): react
+? Framework (react/vite/vue/svelte): react
 ? Enable CSS inlining? (Y/n): Y
 ? Concurrency level (1-10): 3
 ```
@@ -365,6 +365,16 @@ npx zepsh-ssg --hydrate --hydrate-bundle assets/js/app.js
 
 ## Framework-Specific Examples
 
+### React with CRA
+
+```bash
+# Build React app
+npm run build
+
+# Generate static site
+npx zepsh-ssg --framework react --input-dir build
+```
+
 ### React with Vite
 
 ```bash
@@ -372,7 +382,7 @@ npx zepsh-ssg --hydrate --hydrate-bundle assets/js/app.js
 npm run build
 
 # Generate static site
-npx zepsh-ssg --framework react --input-dir dist --sitemap --base-url https://myapp.com
+npx zepsh-ssg --framework vite --input-dir dist --sitemap --base-url https://myapp.com
 ```
 
 ### Vue with Nuxt

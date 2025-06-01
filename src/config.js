@@ -114,7 +114,7 @@ async function promptConfig() {
         type: "list",
         name: "framework",
         message: "Framework to use:",
-        choices: ["react", "vue", "svelte"],
+        choices: ["react", "vite", "vue", "svelte"],
         default: "react",
       },
       {
@@ -202,7 +202,7 @@ async function promptConfig() {
 async function saveConfig(config) {
   const configPath = path.join(process.cwd(), "zepsh.config.js");
   if (fs.existsSync(configPath)) return;
-  const configContent = `export default {
+  const configContent = `${config.framework === "react" ? "module.exports =" : "export default"} {
   ssg: {
     routes: ${JSON.stringify(config.routes, null, 2)},
     basePath: '${config.basePath}',
@@ -287,8 +287,8 @@ async function loadConfig() {
   if (config.hydrateBundle !== null && typeof config.hydrateBundle !== "string") {
     throw new Error("hydrateBundle must be a string or null");
   }
-  if (!["react", "vue", "svelte"].includes(config.framework)) {
-    throw new Error("Framework must be one of: react, vue, svelte");
+  if (!["react", "vite", "vue", "svelte"].includes(config.framework)) {
+    throw new Error("Framework must be one of: react, vite, vue, svelte");
   }
   if (typeof config.batchSize !== "number" || config.batchSize < 1) {
     throw new Error("Batch size must be a positive number");
