@@ -170,4 +170,22 @@ ${processedRoutes
   return sitemapPath;
 };
 
-export { getMimeType, createSpinner, logLabel, logStamp, logHeader, logConfig, logInfo, logSuccess, logWarn, logError, logSummary, generateSitemap };
+const clearCache = async () => {
+  const cacheDir = path.join(process.cwd(), ".zepsh/caches", "ssg.json");
+  if (fs.existsSync(cacheDir)) {
+    await fs.promises.rm(cacheDir, { recursive: true, force: true });
+  }
+};
+
+const clearLogs = async () => {
+  const logsDir = path.join(process.cwd(), ".zepsh/debug/logs", "ssg.log");
+  const screenshotsDir = path.join(process.cwd(), ".zepsh/debug/screenshots", "ssg");
+  if (fs.existsSync(logsDir)) {
+    await fs.promises.rm(logsDir, { recursive: true, force: true });
+  }
+  if (fs.existsSync(screenshotsDir)) {
+    await fs.promises.rm(screenshotsDir, { recursive: true, force: true });
+  }
+};
+
+export { getMimeType, createSpinner, logLabel, logStamp, logHeader, logConfig, logInfo, logSuccess, logWarn, logError, logSummary, generateSitemap, clearCache, clearLogs };
