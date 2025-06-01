@@ -4,7 +4,7 @@ import { program } from "commander";
 import { watch } from "chokidar";
 
 import { loadConfig, startServer, crawlRoutes } from "../src/index.js";
-import { logHeader, logConfig, logInfo, logSuccess, logError, logSummary } from "../src/utils.js";
+import { logHeader, logConfig, logInfo, logSuccess, logError, logSummary, clearCache, clearLogs } from "../src/utils.js";
 
 program
   .storeOptionsAsProperties(false)
@@ -28,6 +28,9 @@ program
   .option("--custom-selectors <selectors>", "Comma-separated custom selectors")
   .option("--watch", "Watch for file changes and rebuild")
   .option("--dry-run", "Preview routes without writing files")
+  .option("--clear-cache", "Clear cached data in .zepsh")
+  .option("--clear-logs", "Clear logs in .zepsh")
+  .option("--clean", "Clear all cache and logs in .zepsh")
   .allowUnknownOption(false)
   .parse(process.argv);
 
@@ -73,6 +76,24 @@ async function main() {
   });
 
   logHeader();
+
+  if (options.clearCache) {
+    await clearCache();
+    logSuccess("Cache cleared successfully");
+    process.exit(0);
+  }
+  if (options.clearLogs) {
+    await clearLogs();
+    logSuccess("Logs cleared successfully");
+    process.exit(0);
+  }
+  if (options.clean) {
+    await clearCache();
+    await clearLogs();
+    logSuccess("All cache and logs cleared successfully");
+    process.exit(0);
+  }
+
   try {
     let config;
     const hasCliOptions = Object.keys(options).length > 0;

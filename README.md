@@ -130,6 +130,9 @@ npx zepsh-ssg --hydrate --hydrate-bundle assets/js/main.js --sitemap --base-url 
 | `--dry-run`                      | Preview routes without generating files                       | -                   |
 | `-V, --version`                  | Display version information                                   | -                   |
 | `-h, --help`                     | Show help information                                         | -                   |
+| `--clear-cache`                  | Clear cached data in `.zepsh`                                 | -                   |
+| `--clear-logs`                   | Clear logs in `.zepsh`                                        | -                   |
+| `--clean`                        | Clear all cache and logs in `.zepsh`                          | -                   |
 
 > **💡 Tip**: When using `--sitemap`, always specify `--base-url` for proper SEO. Without it, URLs will default to `https://localhost:3000`.
 

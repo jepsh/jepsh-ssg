@@ -49,7 +49,7 @@ async function crawlRoutes({
   excludeRoutes = [],
   customSelectors = [],
 }) {
-  const cacheDir = ".zepsh/cache";
+  const cacheDir = ".zepsh/caches";
   const results = [];
   const spinner = createSpinner("Starting route crawling ...");
   const formattedBasePath = basePath && basePath !== "/" ? (basePath.startsWith("/") ? basePath : `/${basePath}`) : "";
