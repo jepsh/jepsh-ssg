@@ -1,0 +1,7 @@
+{
+  "timeout": 5000,
+  "recursive": true,
+  "ui": "bdd",
+  "bail": false,
+  "exit": true
+}

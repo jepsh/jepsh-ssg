@@ -1,0 +1,11 @@
+{
+  "reporter": ["text", "html", "lcov"],
+  "reports-dir": "./coverage",
+  "exclude": ["tests/**", "bin/**", "node_modules/**", "coverage/**", "**/*.config.js", "**/*.test.js"],
+  "include": ["src/**/*.js"],
+  "check-coverage": true,
+  "lines": 80,
+  "functions": 70,
+  "branches": 70,
+  "statements": 80
+}
