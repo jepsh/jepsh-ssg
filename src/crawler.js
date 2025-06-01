@@ -119,6 +119,7 @@ async function crawlRoutes({
 
   const frameworks = {
     react: ["#root > *", "#app > *", "[data-reactroot]"],
+    vite: ["#root > *", "#app > *"],
     vue: ["#app > *"],
     svelte: ["[data-svelte]", "body > div > *"],
   };

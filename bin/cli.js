@@ -18,7 +18,7 @@ program
   .option("--flat-output", "Use flat output file structure")
   .option("--hydrate", "Inject hydration script")
   .option("--hydrate-bundle <path>", "Path to hydration bundle (relative to inputDir)")
-  .option("--framework <name>", "Framework to use (react, vue, svelte)")
+  .option("--framework <name>", "Framework to use (react, vite, vue, svelte)")
   .option("--batch-size <number>", "Number of routes per batch")
   .option("--incremental", "Enable incremental builds")
   .option("--timeout <number>", "Timeout per route in ms")
