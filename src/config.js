@@ -200,7 +200,7 @@ async function promptConfig() {
 }
 
 async function saveConfig(config) {
-  const configPath = path.join(process.cwd(), "zepsh.config.js");
+  const configPath = path.join(process.cwd(), "jepsh.config.js");
   if (fs.existsSync(configPath)) return;
   const configContent = `${config.framework === "react" ? "module.exports =" : "export default"} {
   ssg: {
@@ -229,7 +229,7 @@ async function saveConfig(config) {
 
 async function loadConfig() {
   const cwd = process.cwd();
-  const configPath = path.join(cwd, "zepsh.config.js");
+  const configPath = path.join(cwd, "jepsh.config.js");
   const pkgPath = path.join(cwd, "package.json");
   let config = {};
   if (fs.existsSync(configPath)) {
@@ -238,7 +238,7 @@ async function loadConfig() {
   }
   if (fs.existsSync(pkgPath)) {
     const pkg = JSON.parse(fs.readFileSync(pkgPath, "utf-8"));
-    if (pkg.zepsh && pkg.zepsh.ssg) config = pkg.zepsh.ssg;
+    if (pkg.jepsh && pkg.jepsh.ssg) config = pkg.jepsh.ssg;
   }
   if (!fs.existsSync(configPath) && fs.existsSync(pkgPath)) {
     logInfo("No configuration found. Starting interactive mode ...");

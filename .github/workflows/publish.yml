@@ -1,4 +1,4 @@
-name: Publish zepsh-ssg to NPM
+name: Publish jepsh-ssg to NPM
 
 on:
   release:

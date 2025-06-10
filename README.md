@@ -1,10 +1,10 @@
-# **ZepshSSG** - Static Site Generator
+# **JepshSSG** - Static Site Generator
 
-**ZepshSSG** is a powerful static site generator that crawls modern web applications ([**ZepshJS**](https://github.com/zepsh/zepsh-js), **React**, **Vue**, **Svelte**) and generates static HTML files for improved performance and SEO. It supports dynamic routes, sitemap generation, incremental builds, and provides a sleek CLI experience with interactive configuration.
+**JepshSSG** is a powerful static site generator that crawls modern web applications ([**JepshJS**](https://github.com/jepsh/jepsh-js), **React**, **Vue**, **Svelte**) and generates static HTML files for improved performance and SEO. It supports dynamic routes, sitemap generation, incremental builds, and provides a sleek CLI experience with interactive configuration.
 
-> This is a built-in tool for the [**ZepshJS**](https://github.com/zepsh/zepsh-js) web framework.
+> This is a built-in tool for the [**JepshJS**](https://github.com/jepsh/jepsh-js) web framework.
 
-## Why **ZepshSSG**?
+## Why **JepshSSG**?
 
 Static site generation transforms your dynamic single-page applications into pre-rendered HTML files, providing numerous benefits:
 
@@ -32,37 +32,37 @@ Static site generation transforms your dynamic single-page applications into pre
 ### Global Installation (Recommended)
 
 ```bash
-npm install -g zepsh-ssg
+npm install -g jepsh-ssg
 ```
 
 ### Local Installation
 
 ```bash
-npm install zepsh-ssg --save-dev
-npx zepsh-ssg
+npm install jepsh-ssg --save-dev
+npx jepsh-ssg
 ```
 
 ### Using with Different Package Managers
 
 ```bash
 # Using Yarn
-yarn global add zepsh-ssg
+yarn global add jepsh-ssg
 # or locally
-yarn add -D zepsh-ssg
+yarn add -D jepsh-ssg
 
 # Using pnpm
-pnpm add -g zepsh-ssg
+pnpm add -g jepsh-ssg
 # or locally
-pnpm add -D zepsh-ssg
+pnpm add -D jepsh-ssg
 ```
 
 ## Quick Start
 
-1. **Build your application** (React, Vue, Svelte, or ZepshJS)
-2. **Run ZepshSSG** to generate static files:
+1. **Build your application** (React, Vue, Svelte, or JepshJS)
+2. **Run JepshSSG** to generate static files:
 
 ```bash
-npx zepsh-ssg
+npx jepsh-ssg
 ```
 
 3. **Deploy** the generated static files to any hosting platform
@@ -74,7 +74,7 @@ npx zepsh-ssg
 npm run build
 
 # Generate static site
-npx zepsh-ssg --routes /,/about,/contact --sitemap --base-url https://mysite.com
+npx jepsh-ssg --routes /,/about,/contact --sitemap --base-url https://mysite.com
 
 # Deploy (example with Netlify)
 netlify deploy --prod --dir=build-ssg
@@ -82,10 +82,10 @@ netlify deploy --prod --dir=build-ssg
 
 ## Configuration
 
-**ZepshSSG** offers flexible configuration with the following precedence order:
+**JepshSSG** offers flexible configuration with the following precedence order:
 
 1. **CLI Flags** (highest priority)
-2. **Configuration File** (`zepsh.config.js` or `package.json`)
+2. **Configuration File** (`jepsh.config.js` or `package.json`)
 3. **Interactive Prompts** (when no config is found)
 
 ---
@@ -95,13 +95,13 @@ netlify deploy --prod --dir=build-ssg
 **Basic Usage:**
 
 ```bash
-npx zepsh-ssg --routes /,/about --port 5000 --out-dir static
+npx jepsh-ssg --routes /,/about --port 5000 --out-dir static
 ```
 
 **Advanced Usage with Hydration:**
 
 ```bash
-npx zepsh-ssg --hydrate --hydrate-bundle assets/js/main.js --sitemap --base-url https://example.com
+npx jepsh-ssg --hydrate --hydrate-bundle assets/js/main.js --sitemap --base-url https://example.com
 ```
 
 **Complete Flag Reference:**
@@ -130,9 +130,9 @@ npx zepsh-ssg --hydrate --hydrate-bundle assets/js/main.js --sitemap --base-url 
 | `--dry-run`                      | Preview routes without generating files                       | -                   |
 | `-V, --version`                  | Display version information                                   | -                   |
 | `-h, --help`                     | Show help information                                         | -                   |
-| `--clear-cache`                  | Clear cached data in `.zepsh`                                 | -                   |
-| `--clear-logs`                   | Clear logs in `.zepsh`                                        | -                   |
-| `--clean`                        | Clear all cache and logs in `.zepsh`                          | -                   |
+| `--clear-cache`                  | Clear cached data in `.jepsh`                                 | -                   |
+| `--clear-logs`                   | Clear logs in `.jepsh`                                        | -                   |
+| `--clean`                        | Clear all cache and logs in `.jepsh`                          | -                   |
 
 > **💡 Tip**: When using `--sitemap`, always specify `--base-url` for proper SEO. Without it, URLs will default to `https://localhost:3000`.
 
@@ -140,7 +140,7 @@ npx zepsh-ssg --hydrate --hydrate-bundle assets/js/main.js --sitemap --base-url 
 
 ### 2. Configuration File
 
-#### Using `zepsh.config.js` (Recommended)
+#### Using `jepsh.config.js` (Recommended)
 
 ```javascript
 export default {
@@ -166,9 +166,9 @@ export default {
   "name": "my-app",
   "scripts": {
     "build": "vite build",
-    "ssg": "zepsh-ssg"
+    "ssg": "jepsh-ssg"
   },
-  "zepsh": {
+  "jepsh": {
     "ssg": {
       "routes": ["/", "/about", "/contact"],
       "inputDir": "dist",
@@ -236,10 +236,10 @@ export default {
 
 ### 3. Interactive Configuration
 
-When no configuration is detected, **ZepshSSG** launches an interactive setup wizard:
+When no configuration is detected, **JepshSSG** launches an interactive setup wizard:
 
 ```bash
-npx zepsh-ssg
+npx jepsh-ssg
 
 ? Input directory (where your built files are located): dist
 ? Output directory (where static files will be saved): dist-ssg
@@ -258,12 +258,12 @@ The wizard saves your preferences and generates a configuration file for future 
 
 ### 1. Sitemap Generation
 
-**ZepshSSG** automatically generates SEO-optimized sitemaps with proper lastmod timestamps and canonical URLs.
+**JepshSSG** automatically generates SEO-optimized sitemaps with proper lastmod timestamps and canonical URLs.
 
 **Enable sitemap generation:**
 
 ```bash
-npx zepsh-ssg --sitemap --base-url https://mysite.com
+npx jepsh-ssg --sitemap --base-url https://mysite.com
 ```
 
 **Generated `sitemap.xml` example:**
@@ -291,31 +291,31 @@ npx zepsh-ssg --sitemap --base-url https://mysite.com
 
 ### 2. Incremental Builds
 
-Dramatically reduce build times by only regenerating changed routes. **ZepshSSG** maintains a cache of file hashes to detect changes.
+Dramatically reduce build times by only regenerating changed routes. **JepshSSG** maintains a cache of file hashes to detect changes.
 
 **Enable incremental builds:**
 
 ```bash
-npx zepsh-ssg --incremental
+npx jepsh-ssg --incremental
 ```
 
 **How it works:**
 
 - Calculates checksums for source files
-- Stores metadata in `.zepsh/caches/ssg.json`
+- Stores metadata in `.jepsh/caches/ssg.json`
 - Skips unchanged routes on subsequent builds
 - Automatically handles dependency changes
 
-> **⚠️ Experimental**: This feature is under active development. Please report issues on our [GitHub repository](https://github.com/zepsh/zepsh-ssg/issues).
+> **⚠️ Experimental**: This feature is under active development. Please report issues on our [GitHub repository](https://github.com/jepsh/jepsh-ssg/issues).
 
 ### 3. Debug and Development Tools
 
-**ZepshSSG** provides comprehensive debugging capabilities for troubleshooting generation issues.
+**JepshSSG** provides comprehensive debugging capabilities for troubleshooting generation issues.
 
 **Debug folder structure:**
 
 ```
-.zepsh/
+.jepsh/
 ├── caches/
 │   └── ssg.json                 # Incremental build cache
 └── debug/
@@ -334,8 +334,8 @@ npx zepsh-ssg --incremental
 # Dependencies
 /node_modules/
 
-# ZepshSSG debug and cache files
-/.zepsh/
+# JepshSSG debug and cache files
+/.jepsh/
 
 # Environment files
 .env*
@@ -346,7 +346,7 @@ npx zepsh-ssg --incremental
 Automatically rebuild when source files change during development:
 
 ```bash
-npx zepsh-ssg --watch
+npx jepsh-ssg --watch
 ```
 
 Perfect for development workflows where you want to see static generation results in real-time.
@@ -356,7 +356,7 @@ Perfect for development workflows where you want to see static generation result
 Add client-side interactivity to your static pages:
 
 ```bash
-npx zepsh-ssg --hydrate --hydrate-bundle assets/js/app.js
+npx jepsh-ssg --hydrate --hydrate-bundle assets/js/app.js
 ```
 
 **How hydration works:**
@@ -375,7 +375,7 @@ npx zepsh-ssg --hydrate --hydrate-bundle assets/js/app.js
 npm run build
 
 # Generate static site
-npx zepsh-ssg --framework react --input-dir build
+npx jepsh-ssg --framework react --input-dir build
 ```
 
 ### React with Vite
@@ -385,7 +385,7 @@ npx zepsh-ssg --framework react --input-dir build
 npm run build
 
 # Generate static site
-npx zepsh-ssg --framework vite --input-dir dist --sitemap --base-url https://myapp.com
+npx jepsh-ssg --framework vite --input-dir dist --sitemap --base-url https://myapp.com
 ```
 
 ### Vue with Nuxt
@@ -395,7 +395,7 @@ npx zepsh-ssg --framework vite --input-dir dist --sitemap --base-url https://mya
 npm run generate
 
 # Generate static site
-npx zepsh-ssg --framework vue --input-dir .output/public --routes auto
+npx jepsh-ssg --framework vue --input-dir .output/public --routes auto
 ```
 
 ### Svelte with SvelteKit
@@ -405,14 +405,14 @@ npx zepsh-ssg --framework vue --input-dir .output/public --routes auto
 npm run build
 
 # Generate static site
-npx zepsh-ssg --framework svelte --input-dir build --hydrate
+npx jepsh-ssg --framework svelte --input-dir build --hydrate
 ```
 
 ## Performance Optimization
 
 ### CSS Optimization
 
-**ZepshSSG** uses [Critters](https://github.com/GoogleChromeLabs/critters) to inline critical CSS:
+**JepshSSG** uses [Critters](https://github.com/GoogleChromeLabs/critters) to inline critical CSS:
 
 - Automatically inlines above-the-fold CSS
 - Lazy-loads non-critical stylesheets
@@ -425,7 +425,7 @@ Configure batch processing for optimal performance:
 
 ```bash
 # Process 20 routes at a time with 5 concurrent workers
-npx zepsh-ssg --batch-size 20 --concurrency 5
+npx jepsh-ssg --batch-size 20 --concurrency 5
 ```
 
 ### Memory Management
@@ -434,12 +434,12 @@ For large sites, tune memory usage:
 
 ```bash
 # Increase Node.js memory limit
-NODE_OPTIONS="--max-old-space-size=4096" npx zepsh-ssg
+NODE_OPTIONS="--max-old-space-size=4096" npx jepsh-ssg
 ```
 
 ## Logging and Reporting
 
-**ZepshSSG** provides detailed logging and comprehensive reports:
+**JepshSSG** provides detailed logging and comprehensive reports:
 
 ```
   ███████╗███████╗██████╗ ███████╗██╗  ██╗
@@ -467,7 +467,7 @@ NODE_OPTIONS="--max-old-space-size=4096" npx zepsh-ssg
 ✔ [7:05:28 PM]  SUCCESS  Batch 2/3 completed
 + [7:05:29 PM]  INFO     Processing batch 3/3 (5 routes)...
 ✔ [7:05:32 PM]  SUCCESS  Batch 3/3 completed
-+ [7:05:32 PM]  INFO     Cache saved: '.zepsh/caches/ssg.json'
++ [7:05:32 PM]  INFO     Cache saved: '.jepsh/caches/ssg.json'
 + [7:05:32 PM]  SUCCESS  Generated sitemap: 'dist-ssg/sitemap.xml'
 ✔ [7:05:32 PM]  SUCCESS  Crawling finished
 
@@ -495,28 +495,28 @@ NODE_OPTIONS="--max-old-space-size=4096" npx zepsh-ssg
 
 ```bash
 # Enable debug mode and check auto-detection
-npx zepsh-ssg --routes auto --dry-run
+npx jepsh-ssg --routes auto --dry-run
 ```
 
 **2. Build fails with timeout**
 
 ```bash
 # Increase timeout for complex pages
-npx zepsh-ssg --timeout 60000
+npx jepsh-ssg --timeout 60000
 ```
 
 **3. Memory issues**
 
 ```bash
 # Reduce concurrency and batch size
-npx zepsh-ssg --concurrency 1 --batch-size 10
+npx jepsh-ssg --concurrency 1 --batch-size 10
 ```
 
 **4. CSS not loading**
 
 ```bash
 # Enable CSS inlining if needed
-npx zepsh-ssg --inline-css
+npx jepsh-ssg --inline-css
 ```
 
 ### Debug Information
@@ -525,10 +525,10 @@ Check debug logs for detailed information:
 
 ```bash
 # View debug logs
-cat .zepsh/debug/logs/ssg.log
+cat .jepsh/debug/logs/ssg.log
 
 # View generated screenshots
-ls .zepsh/debug/screenshots/ssg/
+ls .jepsh/debug/screenshots/ssg/
 ```
 
 ## Integration Examples
@@ -561,7 +561,7 @@ jobs:
         run: npm run build
 
       - name: Generate static site
-        run: npx zepsh-ssg --sitemap --base-url https://mysite.com
+        run: npx jepsh-ssg --sitemap --base-url https://mysite.com
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
@@ -576,7 +576,7 @@ Create `netlify.toml`:
 
 ```toml
 [build]
-  command = "npm run build && npx zepsh-ssg --sitemap --base-url https://mysite.netlify.app"
+  command = "npm run build && npx jepsh-ssg --sitemap --base-url https://mysite.netlify.app"
   publish = "build-ssg"
 
 [build.environment]
@@ -595,7 +595,7 @@ Create `vercel.json`:
 
 ```json
 {
-  "buildCommand": "npm run build && npx zepsh-ssg --sitemap --base-url https://mysite.vercel.app",
+  "buildCommand": "npm run build && npx jepsh-ssg --sitemap --base-url https://mysite.vercel.app",
   "outputDirectory": "build-ssg",
   "framework": null
 }
@@ -608,7 +608,7 @@ Create `vercel.json`:
 ```bash
 # Replace gatsby build with:
 npm run build  # Your normal build command
-npx zepsh-ssg --routes auto --sitemap --base-url https://yoursite.com
+npx jepsh-ssg --routes auto --sitemap --base-url https://yoursite.com
 ```
 
 ### From Next.js Static Export
@@ -616,7 +616,7 @@ npx zepsh-ssg --routes auto --sitemap --base-url https://yoursite.com
 ```bash
 # Replace next export with:
 npm run build
-npx zepsh-ssg --framework react --routes auto --sitemap
+npx jepsh-ssg --framework react --routes auto --sitemap
 ```
 
 ### From Nuxt Generate
@@ -624,7 +624,7 @@ npx zepsh-ssg --framework react --routes auto --sitemap
 ```bash
 # Replace nuxt generate with:
 npm run build
-npx zepsh-ssg --framework vue --input-dir .output/public --routes auto
+npx jepsh-ssg --framework vue --input-dir .output/public --routes auto
 ```
 
 ## Contributing
@@ -632,7 +632,7 @@ npx zepsh-ssg --framework vue --input-dir .output/public --routes auto
 We welcome contributions! Here's how to get started:
 
 1. **Fork** the repository
-2. **Clone** your fork: `git clone https://github.com/yourusername/zepsh-ssg.git`
+2. **Clone** your fork: `git clone https://github.com/yourusername/jepsh-ssg.git`
 3. **Install** dependencies: `npm install`
 4. **Create** a feature branch: `git checkout -b feature/amazing-feature`
 5. **Make** your changes and add tests
@@ -645,8 +645,8 @@ We welcome contributions! Here's how to get started:
 
 ```bash
 # Clone the repository
-git clone https://github.com/zepsh/zepsh-ssg.git
-cd zepsh-ssg
+git clone https://github.com/jepsh/jepsh-ssg.git
+cd jepsh-ssg
 
 # Install dependencies
 npm install
@@ -668,7 +668,7 @@ npm run lint:fix  # Auto-fix issues
 npm run format    # Format code
 ```
 
-Please read our [Contributing Guidelines](https://github.com/zepsh/.github/blob/main/CONTRIBUTING.md) for detailed information about our development process, issue reporting, and pull request procedures.
+Please read our [Contributing Guidelines](https://github.com/jepsh/.github/blob/main/CONTRIBUTING.md) for detailed information about our development process, issue reporting, and pull request procedures.
 
 ## License
 
@@ -676,11 +676,11 @@ Please read our [Contributing Guidelines](https://github.com/zepsh/.github/blob/
 
 ## Support
 
-- **Documentation**: [**ZepshSSG** Docs](https://zepsh.github.io/zepsh-ssg)
-- **Bug Reports**: [GitHub Issues](https://github.com/zepsh/zepsh-ssg/issues)
-- **Discussions**: [GitHub Discussions](https://github.com/zepsh/zepsh-ssg/discussions)
-- **Feature Requests**: [GitHub Issues](https://github.com/zepsh/zepsh-ssg/issues/new?template=feature_request.md)
+- **Documentation**: [**JepshSSG** Docs](https://jepsh.github.io/jepsh-ssg)
+- **Bug Reports**: [GitHub Issues](https://github.com/jepsh/jepsh-ssg/issues)
+- **Discussions**: [GitHub Discussions](https://github.com/jepsh/jepsh-ssg/discussions)
+- **Feature Requests**: [GitHub Issues](https://github.com/jepsh/jepsh-ssg/issues/new?template=feature_request.md)
 
 ---
 
-[⭐ Star us on GitHub](https://github.com/zepsh/zepsh-ssg) if you find **ZepshSSG** helpful!
+[⭐ Star us on GitHub](https://github.com/jepsh/jepsh-ssg) if you find **JepshSSG** helpful!

@@ -36,7 +36,7 @@ const createSpinner = (text) => {
 };
 
 const logToFile = async (message) => {
-  const logDir = path.join(".zepsh/debug", "logs");
+  const logDir = path.join(".jepsh/debug", "logs");
   await mkdir(logDir, { recursive: true });
 
   const logFile = fs.createWriteStream(path.join(logDir, "ssg.log"), {
@@ -75,7 +75,7 @@ const logHeader = () => {
   ${packageJson.version.padEnd(20)}`;
 
   console.log(chalk.cyan.bold(content));
-  logToFile(`${logLabel("info")} Zepsh SSG started ...`);
+  logToFile(`${logLabel("info")} Jepsh SSG started ...`);
 };
 
 const logConfig = (config) => {
@@ -171,15 +171,15 @@ ${processedRoutes
 };
 
 const clearCache = async () => {
-  const cacheDir = path.join(process.cwd(), ".zepsh/caches", "ssg.json");
+  const cacheDir = path.join(process.cwd(), ".jepsh/caches", "ssg.json");
   if (fs.existsSync(cacheDir)) {
     await fs.promises.rm(cacheDir, { recursive: true, force: true });
   }
 };
 
 const clearLogs = async () => {
-  const logsDir = path.join(process.cwd(), ".zepsh/debug/logs", "ssg.log");
-  const screenshotsDir = path.join(process.cwd(), ".zepsh/debug/screenshots", "ssg");
+  const logsDir = path.join(process.cwd(), ".jepsh/debug/logs", "ssg.log");
+  const screenshotsDir = path.join(process.cwd(), ".jepsh/debug/screenshots", "ssg");
   if (fs.existsSync(logsDir)) {
     await fs.promises.rm(logsDir, { recursive: true, force: true });
   }

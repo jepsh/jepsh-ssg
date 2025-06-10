@@ -49,7 +49,7 @@ async function crawlRoutes({
   excludeRoutes = [],
   customSelectors = [],
 }) {
-  const cacheDir = ".zepsh/caches";
+  const cacheDir = ".jepsh/caches";
   const results = [];
   const spinner = createSpinner("Starting route crawling ...");
   const formattedBasePath = basePath && basePath !== "/" ? (basePath.startsWith("/") ? basePath : `/${basePath}`) : "";
@@ -255,7 +255,7 @@ async function crawlRoutes({
           } catch (error) {
             logError(`Crawling failed for route '${route}': ${error.message}`);
             try {
-              const screenshotPath = path.join(".zepsh/debug", `screenshots/ssg/${route.replace(/\/+/g, "_")}.png`);
+              const screenshotPath = path.join(".jepsh/debug", `screenshots/ssg/${route.replace(/\/+/g, "_")}.png`);
               await mkdir(path.dirname(screenshotPath), { recursive: true });
               await page.screenshot({ path: screenshotPath });
               logInfo(`Debug screenshot saved: '${screenshotPath}'`);

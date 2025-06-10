@@ -1,12 +1,12 @@
 {
-  "name": "zepsh-ssg",
+  "name": "jepsh-ssg",
   "description": "A static site generator for modern web frameworks with route crawling and hydration support",
   "version": "1.0.4",
   "license": "Apache-2.0",
-  "author": "Zepsh Team <hi@zepsh.dev>",
-  "homepage": "https://zepsh.dev",
+  "author": "Jepsh Team <hi@jepsh.dev>",
+  "homepage": "https://jepsh.dev",
   "keywords": [
-    "zepsh",
+    "jepsh",
     "static-site-generator",
     "ssg",
     "web-crawler",
@@ -20,7 +20,7 @@
   "type": "module",
   "main": "src/index.js",
   "bin": {
-    "zepsh-ssg": "bin/cli.js"
+    "jepsh-ssg": "bin/cli.js"
   },
   "publishConfig": {
     "access": "public"
@@ -32,10 +32,10 @@
   ],
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/zepsh/zepsh-ssg.git"
+    "url": "git+https://github.com/jepsh/jepsh-ssg.git"
   },
   "bugs": {
-    "url": "https://github.com/zepsh/zepsh-ssg/issues"
+    "url": "https://github.com/jepsh/jepsh-ssg/issues"
   },
   "scripts": {
     "dev": "node bin/cli.js",
