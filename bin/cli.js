@@ -28,9 +28,9 @@ program
   .option("--custom-selectors <selectors>", "Comma-separated custom selectors")
   .option("--watch", "Watch for file changes and rebuild")
   .option("--dry-run", "Preview routes without writing files")
-  .option("--clear-cache", "Clear cached data in .zepsh")
-  .option("--clear-logs", "Clear logs in .zepsh")
-  .option("--clean", "Clear all cache and logs in .zepsh")
+  .option("--clear-cache", "Clear cached data in .jepsh")
+  .option("--clear-logs", "Clear logs in .jepsh")
+  .option("--clean", "Clear all cache and logs in .jepsh")
   .allowUnknownOption(false)
   .parse(process.argv);
 
