@@ -1,8 +1,8 @@
 # **JepshSSG** - Static Site Generator
 
-**JepshSSG** is a powerful static site generator that crawls modern web applications ([**JepshJS**](https://github.com/jepsh/jepsh-js), **React**, **Vue**, **Svelte**) and generates static HTML files for improved performance and SEO. It supports dynamic routes, sitemap generation, incremental builds, and provides a sleek CLI experience with interactive configuration.
+**JepshSSG** is a powerful static site generator that crawls modern web applications ([**JepshJS**](https://github.com/jepsh/jepsh), **React**, **Vue**, **Svelte**) and generates static HTML files for improved performance and SEO. It supports dynamic routes, sitemap generation, incremental builds, and provides a sleek CLI experience with interactive configuration.
 
-> This is a built-in tool for the [**JepshJS**](https://github.com/jepsh/jepsh-js) web framework.
+> This is a built-in tool for the [**JepshJS**](https://github.com/jepsh/jepsh) web framework.
 
 ## Why **JepshSSG**?
 
